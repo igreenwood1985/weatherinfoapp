@@ -1,6 +1,8 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <WeatherInfo/>
+    <div class="title-logo"> 
+      <img alt="Weather App Logo" src="./assets/titleImageOne.png">
+    </div>
+    <WeatherInfo/>
 </template>
 
 <script>
@@ -22,5 +24,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.title-logo img {
+  max-height: 25rem;
 }
 </style>
