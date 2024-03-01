@@ -1,7 +1,5 @@
 <template>
-    <div class="title-logo"> 
-      <img alt="Weather App Logo" src="./assets/titleImageOne.png">
-    </div>
+
     <WeatherInfo/>
 </template>
 
@@ -24,6 +22,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background-color: skyblue;
 }
 
 .title-logo img {
