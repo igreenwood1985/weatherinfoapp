@@ -2,6 +2,30 @@
   <div class="container">
     <div class="inner-container">
         <div class="description-display">
+          <div class="display-info-stats">
+              <p><span>Humidity: </span>{{ humidity }}<span>%</span></p>
+          </div>
+          <div class="display-info-stats">
+              <p><span>Dewpoint: </span>{{ dewPoint }}<span>&#176;</span></p>
+          </div>
+          <div class="display-info-stats">
+              <p><span>Pressure: </span>{{ pressure }}<span>mb</span></p>
+          </div>
+          <div class="display-info-stats">
+              <p><span>Wind: </span>{{ windDirection }}<span>&#176; </span><span>{{ windSpeed }}</span><span>kph</span></p>
+          </div>
+          <div v-if = "gustPresent" class="display-info-stats">
+              <p><span>Gust: </span>{{ windGust }}<span>kph</span></p>
+          </div>
+          <div v-if = "noGust" class="display-info-stats">
+              <p><span>Gust: none</span></p>
+          </div>
+          <div class="display-info-stats">
+              <p><span>Heat Index: </span>{{ heatIndex }}<span>&#176;</span></p>
+          </div>
+        </div>
+        <!--Original Description-Display-->
+        <div class="description-display">
           <div class="display-info">
               <h2>{{ temperature }}<span>&#176;</span></h2>
           </div>
@@ -50,6 +74,8 @@ export default {
         showRainy: false,
         showStormy: false,
         showNoIcon: false,
+        gustPresent: true,
+        noGust: false,
         temperature: '',
         latitude: '6.1128',
         longitude: '125.1717'
@@ -64,6 +90,21 @@ export default {
             let descriptionString = response.data.weather[0].description;
             this.weatherDescription = descriptionString.charAt(0).toUpperCase() + descriptionString.slice(1);
             this.temperature = response.data.main.temp;
+            this.humidity = response.data.main.humidity;
+
+            //Dewpoint Calculations utilizing previous API calls for temperature and humidity
+            this.dewPoint = (this.temperature - ((100 - this.humidity)/5)).toFixed(2);
+            
+            this.heatIndex = response.data.main.feels_like;
+            this.pressure = response.data.main.pressure;
+            this.windSpeed = response.data.wind.speed;
+            this.windDirection = response.data.wind.deg;
+            this.windGust = response.data.wind.gust;
+
+            if (this.windGust == null) {
+                this.gustPresent = false;
+                this.noGust = true;
+            }
     
             if(mainDescription == 'Clear'){
               this.showClear = true;
@@ -134,17 +175,26 @@ export default {
 }
 
 .inner-container {
-    justify-content: center;
     width: 50%;
     background-color: rgb(45, 45, 175);
+    display: flex;
+    justify-content: center;
 }
 .description-display {
-    width: 100%;
+    width: 50%;
     background-color: rgb(185, 186, 176);
+    justify-content: center;
+    margin: 2px 2px 2px 2px;
 }
 
 .weather-description img {
   max-height: 7rem;
+}
+
+.display-info-stats {
+  display: flex;
+  justify-content: left;
+  padding-left: 10px;
 }
 
 </style>
