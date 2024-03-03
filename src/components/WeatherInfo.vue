@@ -49,17 +49,22 @@
               <p>No Icon Available</p>
             </div>
 
-            <div class="input-container">
-                <label for= "latitude">Latitude</label>
-                <input type="text" name = "latitude" v-model = "latitude">
-            </div>
-            <div class="input-container">
-                <label for= "longitude">Longitude</label>
-                <input type="text" name = "longitude" v-model = "longitude">
-            </div>
-          <button @click="GetWeatherData()">Get Data</button>
+
         </div>
     </div>
+    <div class="searchbox">
+      <div class="input-row">
+          <div class="input-container">
+                <label for= "latitude">Latitude:</label><p><span>&#160;&#160;&#160;</span></p>
+                <input type="text" name = "latitude" v-model = "latitude">
+            </div>
+          <div class="input-container">
+                <label for= "longitude">Longitude:</label>
+                <input type="text" name = "longitude" v-model = "longitude">
+            </div>
+        </div>
+                    <button @click="GetWeatherDataLatLon()">Get Data</button>
+        </div>
   </div>
 </template>
 
@@ -83,7 +88,7 @@ export default {
       }
     },
     methods:{
-      GetWeatherData(){
+      GetWeatherDataLatLon(){
         axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' +this.longitude + '&appid=35c443852ab1e61c6354ecd647733a3f&units=metric').then(
           response => {
             console.log(response.data)
@@ -164,8 +169,9 @@ export default {
       }
     },
     mounted (){
-      this.GetWeatherData();
-    }
+      this.GetWeatherDataLatLon();
+      this.GetWeatherDataPlaceName();
+    },
 }
 </script>
 
@@ -173,6 +179,7 @@ export default {
 .container  {
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
 }
@@ -182,6 +189,7 @@ export default {
     background-color: rgb(45, 45, 175);
     display: flex;
     justify-content: center;
+    margin: auto;
 }
 .description-display {
     width: 50%;
@@ -200,4 +208,53 @@ export default {
   padding-left: 10px;
 }
 
+.searchbox {
+  width: 50%;
+  margin: auto;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: rgb(45 45 175);
+  
+}
+
+.searchbox label {
+  color: white;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Match parent width */
+    align-items: flex-start; /* Align children to the start */
+}
+
+.input-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+
+
+.input-container input {
+  margin-left: 20px;
+}
+
+input-container label {
+  width: 50%;
+  text-align: right;
+  margin-right: 10px;
+}
+
+.label-spacer {
+  width: 50%;
+}
+
+button {
+  align-self: center;
+  margin-bottom: 10px;
+}
 </style>
