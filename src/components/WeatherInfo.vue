@@ -118,7 +118,7 @@ export default {
     },
     methods:{
       GetWeatherDataLatLon(){
-        const apiKey = '35c443852ab1e61c6354ecd647733a3f'; // Use your actual API key
+        //apiKey Const Location on local machine
         axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' +this.longitude + '&appid=' + apiKey +'&units=metric').then(
           response => {
             console.log(response.data)
@@ -229,7 +229,7 @@ export default {
         ).catch(error => {console.log(error)})
       },
       GetWeatherDataPlaceName() {
-      const apiKey = '35c443852ab1e61c6354ecd647733a3f'; // Use your actual API key
+      //apiKey location on local machine
       axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${this.cityName},${this.stateCode},${this.countryCode}&limit=1&appid=${apiKey}`).then(
         response => {
           if (response.data && response.data.length > 0) {
