@@ -33,17 +33,23 @@
           <div class="display-info">
               <h3>{{ weatherDescription }}</h3>
           </div>
+            <div v-if="showStormy" class="weather-description">
+                <img src = ../assets/thunderstormDayNight.png alt="">
+            </div>
+            <div v-if="showDrizzle" class="weather-description">
+                <img src = ../assets/rainDay.png alt="">
+            </div>
+            <div v-if="showRainy" class="weather-description">
+                <img src = ../assets/showerRainDayNight.png alt="">
+            </div>
+            <div v-if="showSnowy" class="weather-description">
+                <img src = ../assets/snowDayNight.png alt="">
+            </div>
             <div v-if="showClear" class="weather-description">
                 <img src = ../assets/clearSkyDay.png alt="">
             </div>
             <div v-if="showCloudy" class="weather-description">
                 <img src = ../assets/scatteredClouds.png alt="">
-            </div>
-            <div v-if="showRainy" class="weather-description">
-                <img src = ../assets/showerRainDayNight.png alt="">
-            </div>
-            <div v-if="showStormy" class="weather-description">
-                <img src = ../assets/thunderstormDayNight.png alt="">
             </div>
             <div v-if="showNoIcon" class="weather-description">
               <p>No Icon Available</p>
@@ -64,8 +70,26 @@
             </div>
         </div>
                     <button @click="GetWeatherDataLatLon()">Get Data</button>
+      </div>
+      <div class="searchbox">
+      <div class="input-row">
+        <div class="input-container">
+          <label for="cityName">City Name:</label>
+          <input type="text" name="cityName" v-model="cityName">
         </div>
+        <div class="input-container">
+          <label for="stateCode">State Code:</label>
+          <input type="text" name="stateCode" v-model="stateCode">
+        </div>
+        <div class="input-container">
+          <label for="countryCode">Country Code:</label>
+          <input type="text" name="countryCode" v-model="countryCode">
+        </div>
+      </div>
+      <button @click="GetWeatherDataPlaceName()">Get Data</button>
+    </div>
   </div>
+  
 </template>
 
 <script>
@@ -79,17 +103,22 @@ export default {
         showCloudy: false,
         showRainy: false,
         showStormy: false,
+        showDrizzle: false,
         showNoIcon: false,
         gustPresent: true,
         noGust: false,
         temperature: '',
         latitude: '6.1128',
-        longitude: '125.1717'
+        longitude: '125.1717',
+        cityName: '',
+        stateCode: '',
+        countryCode: '',
       }
     },
     methods:{
       GetWeatherDataLatLon(){
-        axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' +this.longitude + '&appid=35c443852ab1e61c6354ecd647733a3f&units=metric').then(
+        const apiKey = '35c443852ab1e61c6354ecd647733a3f'; // Use your actual API key
+        axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' +this.longitude + '&appid=' + apiKey +'&units=metric').then(
           response => {
             console.log(response.data)
             let mainDescription = response.data.weather[0].main;
@@ -114,6 +143,19 @@ export default {
                 this.noGust = true;
             }
     
+
+            if(mainDescription == 'Thunderstorm'){
+              this.showStormy = true;
+            }
+
+            if(mainDescription == 'Drizzle'){
+              this.showDrizzle = true;
+            }
+
+            if(mainDescription == 'Rain'){
+              this.showRainy = true;
+            }
+
             if(mainDescription == 'Clear'){
               this.showClear = true;
             }
@@ -122,27 +164,23 @@ export default {
               this.showCloudy = true;
             }
             
-            if(mainDescription == 'Rain'){
-              this.showRainy = true;
-            }
-
-            if(mainDescription == 'Thunderstorm'){
-              this.showStormy = true;
-            }
-
             switch(true){
-              case mainDescription == 'Clouds':
-                this.showCloudy = true;
-                this.showStormy = false;
-                this.showRainy = false;
-                this.showClear = false;
-                this.showNoIcon = false;
-                break;
               case mainDescription == 'Thunderstorm':
                 this.showCloudy = false;
                 this.showStormy = true;
                 this.showRainy = false;
                 this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = false;
+                this.showNoIcon = false;
+                break;
+              case mainDescription == 'Drizzle':
+                this.showCloudy = false;
+                this.showStormy = false;
+                this.showRainy = false;
+                this.showClear = false;
+                this.showDrizzle = true;
+                this.showSnowy = false;
                 this.showNoIcon = false;
                 break;
               case mainDescription == 'Rain':
@@ -150,6 +188,17 @@ export default {
                 this.showStormy = false;
                 this.showRainy = true;
                 this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = false;
+                this.showNoIcon = false;
+                break;
+              case mainDescription == 'Snow':
+                this.showCloudy = false;
+                this.showStormy = false;
+                this.showRainy = false;
+                this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = true;
                 this.showNoIcon = false;
                 break;
               case mainDescription == 'Clear':
@@ -157,6 +206,17 @@ export default {
                 this.showStormy = false;
                 this.showRainy = false;
                 this.showClear = true;
+                this.showDrizzle = false;
+                this.showSnowy = false;
+                this.showNoIcon = false;
+                break;
+              case mainDescription == 'Clouds':
+                this.showCloudy = true;
+                this.showStormy = false;
+                this.showRainy = false;
+                this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = false;
                 this.showNoIcon = false;
                 break;
               default:
@@ -166,12 +226,29 @@ export default {
 
           }
         ).catch(error => {console.log(error)})
-      }
+      },
+      GetWeatherDataPlaceName() {
+      const apiKey = '35c443852ab1e61c6354ecd647733a3f'; // Use your actual API key
+      axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${this.cityName},${this.stateCode},${this.countryCode}&limit=1&appid=${apiKey}`).then(
+        response => {
+          if (response.data && response.data.length > 0) {
+            const locationData = response.data[0];
+            this.latitude = locationData.lat.toString();
+            this.longitude = locationData.lon.toString();
+            
+            // Get the weather data using the updated coordinates
+            this.GetWeatherDataLatLon();
+          } else {
+            console.log('Location not found');
+          }
+        }
+      ).catch(error => { console.log(error); });
     },
     mounted (){
       this.GetWeatherDataLatLon();
       this.GetWeatherDataPlaceName();
-    },
+    }
+  }
 }
 </script>
 
@@ -186,16 +263,27 @@ export default {
 
 .inner-container {
     width: 50%;
-    background-color: rgb(45, 45, 175);
+    background-color: rgb(45, 45, 175, 0.5);
     display: flex;
     justify-content: center;
     margin: auto;
 }
+
 .description-display {
     width: 50%;
-    background-color: rgb(185, 186, 176);
+    background-color: rgb(45, 45, 175, 0.5);
     justify-content: center;
     margin: 2px 2px 2px 2px;
+    position: relative;
+    z-index:1;
+}
+
+.title {
+  color: white;
+}
+
+.display-info {
+  color: white;
 }
 
 .weather-description img {
@@ -206,16 +294,18 @@ export default {
   display: flex;
   justify-content: left;
   padding-left: 10px;
+  color: white;
 }
 
 .searchbox {
   width: 50%;
   margin: auto;
+  margin-top: 5px;
   padding-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: rgb(45 45 175);
+  background-color: rgb(255,215,0, 0.5);
   
 }
 
