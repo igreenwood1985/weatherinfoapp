@@ -117,6 +117,23 @@ export default {
       }
     },
     methods:{
+      GetWeatherDataPlaceName() {
+      const apiKey = '35c443852ab1e61c6354ecd647733a3f'; //apiKey location on local machine
+      axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${this.cityName},${this.stateCode},${this.countryCode}&limit=1&appid=${apiKey}`).then(
+        response => {
+          if (response.data && response.data.length > 0) {
+            const locationData = response.data[0];
+            this.latitude = locationData.lat.toString();
+            this.longitude = locationData.lon.toString();
+            
+            // Get the weather data using the updated coordinates
+            this.GetWeatherDataLatLon();
+          } else {
+            console.log('Location not found');
+          }
+        }
+      ).catch(error => { console.log(error); });
+    },
       GetWeatherDataLatLon(){
         const apiKey = '35c443852ab1e61c6354ecd647733a3f'; //apiKey Const Location on local machine
         axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' +this.longitude + '&appid=' + apiKey +'&units=metric').then(
@@ -228,23 +245,6 @@ export default {
           }
         ).catch(error => {console.log(error)})
       },
-      GetWeatherDataPlaceName() {
-      const apiKey = '35c443852ab1e61c6354ecd647733a3f'; //apiKey location on local machine
-      axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${this.cityName},${this.stateCode},${this.countryCode}&limit=1&appid=${apiKey}`).then(
-        response => {
-          if (response.data && response.data.length > 0) {
-            const locationData = response.data[0];
-            this.latitude = locationData.lat.toString();
-            this.longitude = locationData.lon.toString();
-            
-            // Get the weather data using the updated coordinates
-            this.GetWeatherDataLatLon();
-          } else {
-            console.log('Location not found');
-          }
-        }
-      ).catch(error => { console.log(error); });
-    },
     mounted (){
       this.GetWeatherDataLatLon();
       this.GetWeatherDataPlaceName();
