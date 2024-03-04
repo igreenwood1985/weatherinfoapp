@@ -88,6 +88,7 @@
       </div>
       <button @click="GetWeatherDataPlaceName()">Get Data</button>
     </div>
+    <p class="copyright-notice">*Weather Icons taken from <a href = https://iconpacks.net>iconpacks.net</a>.</p>
   </div>
   
 </template>
@@ -258,6 +259,8 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-image: url('~@/assets/WeatherBackground.png');
+    z-index: 0;
 
 }
 
@@ -346,5 +349,18 @@ input-container label {
 button {
   align-self: center;
   margin-bottom: 10px;
+}
+
+.copyright-notice{
+  color: white;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover, a:active {
+  color: gold;
 }
 </style>
