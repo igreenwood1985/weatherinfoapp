@@ -119,7 +119,7 @@ export default {
     methods:{
       GetWeatherDataLatLon(){
         //apiKey Const Location on local machine
-        axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' +this.longitude + '&appid=' + ${process.env.VUE_APP_API_KEY} +'&units=metric').then(
+        axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' +this.longitude + '&appid=' + apiKey +'&units=metric').then(
           response => {
             console.log(response.data)
             let mainDescription = response.data.weather[0].main;
@@ -230,7 +230,7 @@ export default {
       },
       GetWeatherDataPlaceName() {
       //apiKey location on local machine
-      axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${this.cityName},${this.stateCode},${this.countryCode}&limit=1&appid=${process.env.VUE_APP_API_KEY}`).then(
+      axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${this.cityName},${this.stateCode},${this.countryCode}&limit=1&appid=${apiKey}`).then(
         response => {
           if (response.data && response.data.length > 0) {
             const locationData = response.data[0];
