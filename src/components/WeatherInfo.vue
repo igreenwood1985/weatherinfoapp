@@ -119,7 +119,7 @@ export default {
     methods:{
       GetWeatherDataPlaceName() {
       const apiKey = '35c443852ab1e61c6354ecd647733a3f'; //apiKey location on local machine
-      axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${this.cityName},${this.stateCode},${this.countryCode}&limit=1&appid=${apiKey}`).then(
+      axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${this.cityName},${this.stateCode},${this.countryCode}&limit=2&appid=${apiKey}`).then(
         response => {
           if (response.data && response.data.length > 0) {
             const locationData = response.data[0];
