@@ -28,6 +28,9 @@
         <div class="description-display">
           <div class="title"><h2>{{ locationName }}</h2></div>
           <div class="display-info">
+              <h3>{{ countryCodeDisplay }}</h3>
+          </div>
+          <div class="display-info">
               <h2>{{ temperature }}<span>&#176;</span></h2>
           </div>
           <div class="display-info">
@@ -144,6 +147,7 @@ export default {
             this.weatherDescription = descriptionString.charAt(0).toUpperCase() + descriptionString.slice(1);
             
             this.locationName = response.data.name;
+            this.countryCodeDisplay = response.data.sys.country;
             this.temperature = response.data.main.temp;
             this.humidity = response.data.main.humidity;
 
