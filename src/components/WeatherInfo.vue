@@ -6,7 +6,7 @@
               <p><span>Humidity: </span>{{ humidity }}<span>%</span></p>
           </div>
           <div class="display-info-stats">
-              <p><span>Dewpoint: </span>{{ dewPoint }}<span>&#176;</span></p>
+              <p><span>Dewpoint: </span>{{ dewPoint }}<span>&#176;</span>C</p>
           </div>
           <div class="display-info-stats">
               <p><span>Pressure: </span>{{ pressure }}<span>mb</span></p>
@@ -21,7 +21,7 @@
               <p><span>Gust: none</span></p>
           </div>
           <div class="display-info-stats">
-              <p><span>Heat Index: </span>{{ heatIndex }}<span>&#176;</span></p>
+              <p><span>Heat Index: </span>{{ heatIndex }}<span>&#176;</span>C</p>
           </div>
         </div>
         <!--Original Description-Display-->
@@ -31,7 +31,7 @@
               <h3>{{ countryCodeDisplay }}</h3>
           </div>
           <div class="display-info">
-              <h2>{{ temperature }}<span>&#176;</span></h2>
+              <h2>{{ temperature }}<span>&#176;</span>C</h2>
           </div>
           <div class="display-info">
               <h3>{{ weatherDescription }}</h3>
