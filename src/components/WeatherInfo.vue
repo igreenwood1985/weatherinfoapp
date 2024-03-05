@@ -77,11 +77,11 @@
       <div class="searchbox">
       <div class="input-row">
         <div class="input-container">
-          <label for="cityName">City Name:</label>
+          <label for="cityName">City Name:</label><p><span>&#160;&#160;&#160;&#160;&#160;</span></p>
           <input type="text" name="cityName" v-model="cityName">
         </div>
         <div class="input-container">
-          <label for="stateCode">State Code:</label>
+          <label for="stateCode">State Code:</label><p><span>&#160;&#160;&#160;&#160;</span></p>
           <input type="text" name="stateCode" v-model="stateCode">
         </div>
         <div class="input-container">
