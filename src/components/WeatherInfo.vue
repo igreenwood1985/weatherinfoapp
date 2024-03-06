@@ -346,10 +346,6 @@ input-container label {
   margin-right: 10px;
 }
 
-.label-spacer {
-  width: 50%;
-}
-
 button {
   align-self: center;
   margin-bottom: 10px;
@@ -366,5 +362,19 @@ a {
 
 a:hover, a:active {
   color: gold;
+}
+
+/*Responsive resizing of elements for smart phone screens */
+@media only screen and (max-width: 650px) {
+  .inner-container {
+    width: 80%;
+
+}
+
+  .searchbox {
+  width: 80%;
+  
+}
+
 }
 </style>
