@@ -122,7 +122,7 @@ export default {
     },
     methods:{
       GetWeatherDataPlaceName() {
-      const apiKey = '35c443852ab1e61c6354ecd647733a3f';
+      const apiKey = 'a74f7a8c5a531b2988852a01586d8882';
       axios.get(`https://api.openweathermap.org/geo/1.0/direct?q=${this.cityName},${this.stateCode},${this.countryCode}&limit=1&appid=` + apiKey).then(
         response => {
           if (response.data && response.data.length > 0) {
@@ -139,7 +139,7 @@ export default {
       ).catch(error => { console.log(error); });
     },
       GetWeatherDataLatLon(){
-        const apiKey = '35c443852ab1e61c6354ecd647733a3f';
+        const apiKey = 'a74f7a8c5a531b2988852a01586d8882';
         axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' +this.longitude + '&appid=' + apiKey +'&units=metric').then(
           response => {
             console.log(response.data)
