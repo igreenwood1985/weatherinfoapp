@@ -12,7 +12,7 @@
               <p><span>Pressure: </span>{{ pressure }}<span>mb</span></p>
           </div>
           <div class="display-info-stats">
-              <p><span>Wind: </span>{{ windDirection }}<span>&#176; </span><span>{{ windSpeed }}</span><span>kph</span></p>
+              <p><span>Wind: </span>{{ windDirection }}<span>&#160; </span><span>{{ windSpeed }}</span><span>kph</span></p>
           </div>
           <div v-if = "gustPresent" class="display-info-stats">
               <p><span>Gust: </span>{{ windGust }}<span>kph</span></p>
@@ -117,6 +117,7 @@ export default {
         cityName: '',
         stateCode: '',
         countryCode: '',
+        windDirection: '',
       }
     },
     methods:{
@@ -157,7 +158,108 @@ export default {
             this.heatIndex = response.data.main.feels_like;
             this.pressure = response.data.main.pressure;
             this.windSpeed = response.data.wind.speed;
-            this.windDirection = response.data.wind.deg;
+            this.degree = response.data.wind.deg;
+
+            //Conditional Statements for NESW compass directions based on degrees
+            // pulled from API wind direction data 
+            if (this.degree >= 0 && this.degree < 11.25){ 
+              this.windDirection = 'N';
+            }
+            else if (this.degree < 22.5){ 
+              this.windDirection = 'NbE';
+            }
+            else if (this.degree < 33.75){ 
+              this.windDirection = 'NNE';
+            }
+            else if (this.degree < 45){ 
+              this.windDirection = 'NEbN';
+            }
+            else if (this.degree < 56.25){ 
+              this.windDirection = 'NE';
+            }
+            else if (this.degree < 67.5){ 
+              this.windDirection = 'NEbE';
+            }
+            else if (this.degree < 78.75){ 
+              this.windDirection = 'ENE';
+            }
+            else if (this.degree < 90){ 
+              this.windDirection = 'EbN';
+            }
+            else if (this.degree < 101.25){ 
+              this.windDirection = 'E';
+            }
+            else if (this.degree < 112.5){ 
+              this.windDirection = 'EbS';
+            }
+            else if (this.degree < 123.75){ 
+              this.windDirection = 'ESE';
+            }
+            else if (this.degree < 135){ 
+              this.windDirection = 'SEbE';
+            }
+            else if (this.degree < 146.25){ 
+              this.windDirection = 'SE';
+            }
+            else if (this.degree < 157.5){ 
+              this.windDirection = 'SEbS';
+            }
+            else if (this.degree < 168.75){ 
+              this.windDirection = 'SSE';
+            }
+            else if (this.degree < 180){ 
+              this.windDirection = 'SbE';
+            }
+            else if (this.degree < 191.25){ 
+              this.windDirection = 'S';
+            }
+            else if (this.degree < 202.5){ 
+              this.windDirection = 'SbW';
+            }
+            else if (this.degree < 213.75){ 
+              this.windDirection = 'SSW';
+            }
+            else if (this.degree < 225){ 
+              this.windDirection = 'SWbS';
+            }
+            else if (this.degree < 236.25){ 
+              this.windDirection = 'SW';
+            }
+            else if (this.degree < 247.5){ 
+              this.windDirection = 'SWbW';
+            }
+            else if (this.degree < 258.75){ 
+              this.windDirection = 'WSW';
+            }
+            else if (this.degree < 270){ 
+              this.windDirection = 'WbS';
+            }
+            else if (this.degree < 281.25){ 
+              this.windDirection = 'W';
+            }
+            else if (this.degree < 292.5){ 
+              this.windDirection = 'WbN';
+            }
+            else if (this.degree < 303.75){ 
+              this.windDirection = 'WNW';
+            }
+            else if (this.degree < 315){ 
+              this.windDirection = 'NWbW';
+            }
+            else if (this.degree < 326.25){ 
+              this.windDirection = 'NW';
+            }
+            else if (this.degree < 337.5){ 
+              this.windDirection = 'NWbN';
+            }
+            else if (this.degree < 348.75){ 
+              this.windDirection = 'NNW';
+            }
+            else{ 
+              this.windDirection = 'NbW';
+            }
+
+
             this.windGust = response.data.wind.gust;
 
             if (this.windGust == null) {
