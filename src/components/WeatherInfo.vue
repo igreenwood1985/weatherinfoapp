@@ -320,6 +320,10 @@ export default {
   color: white;
 }
 
+.weather-description p {
+  color: white;
+}
+
 .input-row {
     display: flex;
     flex-direction: column;
@@ -338,6 +342,7 @@ export default {
 
 .input-container input {
   margin-left: 20px;
+  width: 50%
 }
 
 input-container label {
