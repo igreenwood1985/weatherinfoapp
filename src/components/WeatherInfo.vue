@@ -72,7 +72,7 @@
                 <input type="text" name = "longitude" v-model = "longitude">
             </div>
         </div>
-                    <button @click="GetWeatherDataLatLon()">Get Data</button>
+                    <button @click="GetWeatherDataLatLon()">Get Weather Report</button>
       </div>
       <div class="searchbox">
       <div class="input-row">
@@ -89,7 +89,7 @@
           <input type="text" name="countryCode" v-model="countryCode">
         </div>
       </div>
-      <button @click="GetWeatherDataPlaceName()">Get Data</button>
+      <button @click="GetWeatherDataPlaceName()">Get Weather Report</button>
     </div>
     <p class="copyright-notice">*Weather Icons taken from <a href = https://iconpacks.net>iconpacks.net</a>.</p>
   </div>
