@@ -85,7 +85,7 @@
           <input type="text" name="stateCode" v-model="stateCode">
         </div>
         <div class="input-container">
-          <label for="countryCode">Country Code:</label>
+          <label for="countryCode">Country Code:</label><p><span>&#160;</span></p>
           <input type="text" name="countryCode" v-model="countryCode">
         </div>
       </div>
