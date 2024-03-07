@@ -64,7 +64,7 @@
     <div class="searchbox">
       <div class="input-row">
           <div class="input-container">
-                <label for= "latitude">Latitude:</label><p><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></p>
+                <label for= "latitude">Latitude:</label><p><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></p>
                 <input type="text" name = "latitude" v-model = "latitude">
             </div>
           <div class="input-container">
@@ -77,11 +77,11 @@
       <div class="searchbox">
       <div class="input-row">
         <div class="input-container">
-          <label for="cityName">City Name:</label><p><span>&#160;&#160;&#160;&#160;&#160;</span></p>
+          <label for="cityName">City Name:</label><p><span>&#160;&#160;&#160;&#160;&#160;&#160;</span></p>
           <input type="text" name="cityName" v-model="cityName">
         </div>
         <div class="input-container">
-          <label for="stateCode">State Code:</label><p><span>&#160;&#160;&#160;&#160;</span></p>
+          <label for="stateCode">State Code:</label><p><span>&#160;&#160;&#160;&#160;&#160;</span></p>
           <input type="text" name="stateCode" v-model="stateCode">
         </div>
         <div class="input-container">
