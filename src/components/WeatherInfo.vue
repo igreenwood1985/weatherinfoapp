@@ -68,7 +68,7 @@
                 <input type="text" name = "latitude" v-model = "latitude">
             </div>
           <div class="input-container">
-                <label for= "longitude">Longitude:</label><p><span>&#160;&#160;&#160;&#160;&#160;&#160;</span></p>
+                <label for= "longitude">Longitude:</label><p><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></p>
                 <input type="text" name = "longitude" v-model = "longitude">
             </div>
         </div>
