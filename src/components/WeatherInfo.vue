@@ -12,7 +12,7 @@
               <p><span>Pressure: </span>{{ pressure }}<span>mb</span></p>
           </div>
           <div class="display-info-stats">
-              <p><span>Wind: </span>{{ windDirection }}<span>&#160; </span><span>{{ windSpeed }}</span><span>kph</span></p>
+              <p><span>Wind: </span>{{ windDirection }}<span>&#160;</span><span>{{ windSpeed }}</span><span>kph</span></p>
           </div>
           <div v-if = "gustPresent" class="display-info-stats">
               <p><span>Gust: </span>{{ windGust }}<span>kph</span></p>
@@ -64,11 +64,11 @@
     <div class="searchbox">
       <div class="input-row">
           <div class="input-container">
-                <label for= "latitude">Latitude:</label><p><span>&#160;&#160;&#160;</span></p>
+                <label for= "latitude">Latitude:</label><p><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span></p>
                 <input type="text" name = "latitude" v-model = "latitude">
             </div>
           <div class="input-container">
-                <label for= "longitude">Longitude:</label>
+                <label for= "longitude">Longitude:</label><p><span>&#160;&#160;&#160;&#160;&#160;&#160;</span></p>
                 <input type="text" name = "longitude" v-model = "longitude">
             </div>
         </div>
