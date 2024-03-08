@@ -79,10 +79,16 @@ header a:hover, a:active {
 
   header h1 {
     font-size: smaller;
+    width: 30%
+  }
+
+  .spacer {
+    width: 30%;
   }
 
   header h3 {
     font-size: smaller;
+    width: 40%;
   }
 }
 </style>
