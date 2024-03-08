@@ -567,9 +567,14 @@ a:hover, a:active {
 
 }
 
-  .searchbox {
+.searchbox {
   width: 80%;
   
+}
+
+.searchbox-row {
+  width: 80%;
+
 }
 
 }
