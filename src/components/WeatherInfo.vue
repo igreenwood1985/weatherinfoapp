@@ -513,14 +513,14 @@ export default {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 
 .input-container-units {
   display: flex;
   align-items: center;
-  margin-bottom: 10px;
-  margin-left: 10px;
+  margin-bottom: 5px;
+  margin-left: 5px;
 }
 
 .input-container-units label{
