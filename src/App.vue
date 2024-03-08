@@ -74,7 +74,7 @@ header a:hover, a:active {
 
 @media only screen and (max-width: 650px) {
   header {
-    margin-left: 1rem;
+    padding-left: 1rem;
   }
 
   header h1 {
