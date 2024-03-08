@@ -78,7 +78,6 @@ header a:hover, a:active {
   }
 
   header h1 {
-    font-size: small;
     width: 30%
     
   }
