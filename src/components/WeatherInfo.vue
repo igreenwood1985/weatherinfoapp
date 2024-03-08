@@ -6,22 +6,22 @@
               <p><span>Humidity: </span>{{ humidity }}<span>%</span></p>
           </div>
           <div class="display-info-stats">
-              <p><span>Dewpoint: </span>{{ dewPoint }}<span>&#176;</span>C</p>
+              <p><span>Dewpoint: </span>{{ dewPoint }}<span>&#176;</span>{{ tempScale }}</p>
           </div>
           <div class="display-info-stats">
               <p><span>Pressure: </span>{{ pressure }}<span>mb</span></p>
           </div>
           <div class="display-info-stats">
-              <p><span>Wind: </span>{{ windDirection }}<span>&#160;</span><span>{{ windSpeed }}</span><span>kph</span></p>
+              <p><span>Wind: </span>{{ windDirection }}<span>&#160;</span><span>{{ windSpeed }}</span><span>{{speedScale}}</span></p>
           </div>
           <div v-if = "gustPresent" class="display-info-stats">
-              <p><span>Gust: </span>{{ windGust }}<span>kph</span></p>
+              <p><span>Gust: </span>{{ windGust }}<span>{{ speedScale }}</span></p>
           </div>
           <div v-if = "noGust" class="display-info-stats">
               <p><span>Gust: none</span></p>
           </div>
           <div class="display-info-stats">
-              <p><span>Heat Index: </span>{{ heatIndex }}<span>&#176;</span>C</p>
+              <p><span>Heat Index: </span>{{ heatIndex }}<span>&#176;</span>{{ tempScale }}</p>
           </div>
         </div>
         <!--Original Description-Display-->
@@ -31,7 +31,7 @@
               <h3>{{ countryCodeDisplay }}</h3>
           </div>
           <div class="display-info">
-              <h2>{{ temperature }}<span>&#176;</span>C</h2>
+              <h2>{{ temperature }}<span>&#176;</span>{{ tempScale }}</h2>
           </div>
           <div class="display-info">
               <h3>{{ weatherDescription }}</h3>
@@ -60,6 +60,20 @@
 
 
         </div>
+    </div>
+    <div class="searchbox-row">
+      <div class="input-row-units">
+        <div class="input-container-units">
+          <label for="imperial-units">Imperial Units (US):</label>
+          <input type="radio" name="units" @click="showImperial" value="imperial">
+        </div>
+      </div>
+      <div class="input-row-units">
+        <div class="input-container-units">
+          <label for="metric-units">Metric Units:</label>
+          <input type="radio" name="units" @click="showMetric" value="metric">
+        </div>
+      </div>
     </div>
     <div class="searchbox">
       <div class="input-row">
@@ -118,6 +132,7 @@ export default {
         stateCode: '',
         countryCode: '',
         windDirection: '',
+        units: 'metric',
       }
     },
     methods:{
@@ -138,6 +153,14 @@ export default {
         }
       ).catch(error => { console.log(error); });
     },
+      showImperial() {
+        this.units = 'imperial';
+        this.GetWeatherDataLatLon();
+      },
+      showMetric() {
+        this.units = 'metric';
+        this.GetWeatherDataLatLon();
+      },
       GetWeatherDataLatLon(){
         const apiKey = 'a74f7a8c5a531b2988852a01586d8882';
         axios.get('https://api.openweathermap.org/data/2.5/weather?lat=' + this.latitude + '&lon=' +this.longitude + '&appid=' + apiKey +'&units=metric').then(
@@ -149,16 +172,58 @@ export default {
             
             this.locationName = response.data.name;
             this.countryCodeDisplay = response.data.sys.country;
-            this.temperature = response.data.main.temp;
+
             this.humidity = response.data.main.humidity;
 
-            //Dewpoint Calculations utilizing previous API calls for temperature and humidity
-            this.dewPoint = (this.temperature - ((100 - this.humidity)/5)).toFixed(2);
+            if(this.units == 'metric'){
+              this.temperature = response.data.main.temp;
+              //Dewpoint Calculations utilizing previous API calls for temperature and humidity
+              this.dewPoint = (this.temperature - ((100 - this.humidity)/5)).toFixed(2);
+              this.heatIndex = response.data.main.feels_like;
+              this.windSpeed = response.data.wind.speed;
+              this.windGust = response.data.wind.gust;
+
+              this.tempScale = 'C';
+              this.speedScale = 'KPH';
+
+            }
+
             
-            this.heatIndex = response.data.main.feels_like;
+
+            if(this.units == 'imperial'){
+              this.temperature = (response.data.main.temp*1.8 + 32).toFixed(2)
+              this.dewPoint = ((response.data.main.temp - ((100 - this.humidity)/5))*1.8+32).toFixed(2);
+              this.heatIndex = (response.data.main.feels_like*1.8 + 32).toFixed(2);
+              this.windSpeed = (response.data.wind.speed * 0.62).toFixed(2);
+              this.yesGust = response.data.wind.gust;
+
+              if(this.yesGust == null){
+                this.windGust == null;
+              } else {
+                this.windGust = (this.yesGust*0.62).toFixed(2);
+              }
+
+              this.tempScale = 'F';
+              this.speedScale = 'MPH';
+
+            }
+          
+
             this.pressure = response.data.main.pressure;
-            this.windSpeed = response.data.wind.speed;
             this.degree = response.data.wind.deg;
+
+            console.log(this.windGust)
+            
+            if (this.windGust == null) {
+                this.gustPresent = false;
+                this.noGust = true;
+            } else if (Number.isNaN(this.windGust)) {
+                this.gustPresent = false;
+                this.noGust = true;
+            } else {
+                this.gustPresent = true;
+                this.noGust = false;
+            }
 
             //Conditional Statements for NESW compass directions based on degrees
             // pulled from API wind direction data 
@@ -258,15 +323,6 @@ export default {
             else{ 
               this.windDirection = 'NbW';
             }
-
-
-            this.windGust = response.data.wind.gust;
-
-            if (this.windGust == null) {
-                this.gustPresent = false;
-                this.noGust = true;
-            }
-    
 
             if(mainDescription == 'Thunderstorm'){
               this.showStormy = true;
@@ -418,6 +474,19 @@ export default {
   
 }
 
+.searchbox-row {
+  width: 50%;
+  margin: auto;
+  margin-top: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  background-color: rgb(255,215,0, 0.5);
+  
+}
+
 .searchbox label {
   color: white;
 }
@@ -433,6 +502,13 @@ export default {
     align-items: flex-start; /* Align children to the start */
 }
 
+.input-row-units {
+    display: flex;
+    flex-direction: row;
+    width: 50%; /* Match parent width */
+    align-items: flex-start; /* Align children to the start */
+}
+
 .input-container {
   display: flex;
   align-items: center;
@@ -440,6 +516,19 @@ export default {
   margin-left: 10px;
 }
 
+.input-container-units {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+
+.input-container-units label{
+  flex-grow: 1;
+  text-align: right;
+  margin-right: 10px;
+  color: white;
+}
 
 
 .input-container input {
@@ -447,11 +536,11 @@ export default {
   width: 50%
 }
 
-input-container label {
+/*input-container label {
   width: 50%;
   text-align: right;
   margin-right: 10px;
-}
+}*/
 
 button {
   align-self: center;
