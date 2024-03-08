@@ -64,13 +64,13 @@
     <div class="searchbox-row">
       <div class="input-row-units">
         <div class="input-container-units">
-          <label for="imperial-units">Imperial Units (US):</label>
+          <label for="imperial-units">Imperial (US):</label>
           <input type="radio" name="units" @click="showImperial" value="imperial">
         </div>
       </div>
       <div class="input-row-units">
         <div class="input-container-units">
-          <label for="metric-units">Metric Units:</label>
+          <label for="metric-units">Metric:</label>
           <input type="radio" name="units" @click="showMetric" value="metric">
         </div>
       </div>
