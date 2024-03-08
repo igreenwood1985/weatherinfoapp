@@ -524,7 +524,6 @@ export default {
 }
 
 .input-container-units label{
-  flex-grow: 1;
   text-align: right;
   margin-right: 10px;
   color: white;
