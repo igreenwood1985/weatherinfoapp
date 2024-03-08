@@ -71,4 +71,18 @@ header a {
 header a:hover, a:active {
   color: gold;
 }
+
+@media only screen and (max-width: 650px) {
+  header {
+    margin-left: 1rem;
+  }
+
+  header h1 {
+    font-size: smaller;
+  }
+
+  header h3 {
+    font-size: smaller;
+  }
+}
 </style>
