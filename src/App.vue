@@ -83,6 +83,14 @@ header a:hover, a:active {
     padding-left: 1rem;
     height: 4rem;
   }
+
+  header h3 {
+    margin-left: -1rem;
+  }
+
+  header img {
+    margin-left: 1rem;
+  }
 }
 
 @media only screen and (max-width: 750px) {
@@ -108,7 +116,7 @@ header a:hover, a:active {
   }
 
   header img {
-    margin-left: 10px;
+    margin-left: 1rem;
   }
 
   .spacer {
@@ -118,6 +126,7 @@ header a:hover, a:active {
   header h3 {
     font-size: smaller;
     width: 40%;
+    margin-left: -1rem;
   }
 }
 </style>
