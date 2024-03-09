@@ -562,6 +562,7 @@ a:hover, a:active {
   color: gold;
 }
 
+
 /*Responsive resizing of elements for smart phone screens */
 @media only screen and (max-width: 650px) {
   .inner-container {
