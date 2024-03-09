@@ -106,6 +106,7 @@
       <button @click="GetWeatherDataPlaceName()">Get Weather Report</button>
     </div>
     <p class="copyright-notice">*Weather Icons taken from <a href = https://iconpacks.net>iconpacks.net</a>.</p>
+    <p class="copyright-notice">*Sakura Icon taken from <a href = https://www.cleanpng.com/png-flower-icon-cherry-blossom-icon-japan-icon-7690439/#google_vignette>cleanpng.com</a>.</p>
   </div>
   
 </template>
@@ -548,6 +549,8 @@ button {
 
 .copyright-notice{
   color: white;
+  margin-top: 2px;
+  margin-bottom: 1px;
 }
 
 a {

@@ -1,6 +1,7 @@
 <template>
   <header>
     <h1>Sakura Weather</h1>
+    <img src = ./assets/sakuraStandInLogo.png alt = "an abstracted geometrical cherry blossom logo"/>
     <div class="spacer"></div>
     <h3>Built by <a href = "https://gensanitydev.com">Gensanity Dev</a></h3>
   </header>
@@ -52,8 +53,13 @@ header h1 {
   width: 15%;
 }
 
+header img {
+  height: 3rem;
+}
+
 .spacer {
   width: 50%;
+
 }
 
 header h3 {
@@ -70,6 +76,20 @@ header a {
 
 header a:hover, a:active {
   color: gold;
+}
+
+@media only screen and (max-width: 1200px) {
+  header {
+    padding-left: 1rem;
+    height: 4rem;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  header {
+    padding-left: 1rem;
+    height: 5rem;
+  }
 }
 
 @media only screen and (max-width: 650px) {
