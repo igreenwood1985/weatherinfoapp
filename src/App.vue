@@ -102,6 +102,10 @@ header a:hover, a:active {
   .spacer {
     width: 40%;
   }
+
+  header h3 {
+    margin-left: -1rem;
+  }
 }
 
 @media only screen and (max-width: 650px) {
