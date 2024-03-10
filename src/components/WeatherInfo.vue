@@ -37,25 +37,25 @@
               <h3>{{ weatherDescription }}</h3>
           </div>
             <div v-if="showStormy" class="weather-description">
-                <img src = ../assets/thunderstormDayNight.png alt="">
+                <img src = ../assets/realThunderstormTwo.png alt="">
             </div>
             <div v-if="showDrizzle" class="weather-description">
-                <img src = ../assets/rainDay.png alt="">
+                <img src = ../assets/realDrizzleDay.png alt="">
             </div>
             <div v-if="showRainy" class="weather-description">
-                <img src = ../assets/showerRainDayNight.png alt="">
+                <img src = ../assets/realRainShower.png alt="">
             </div>
             <div v-if="showSnowy" class="weather-description">
-                <img src = ../assets/snowDayNight.png alt="">
+                <img src = ../assets/realSnow.png alt="">
             </div>
             <div v-if="showClear" class="weather-description">
-                <img src = ../assets/clearSkyDay.png alt="">
+                <img src = ../assets/realClearDay.png alt="">
             </div>
             <div v-if="showCloudy" class="weather-description">
-                <img src = ../assets/scatteredClouds.png alt="">
+                <img src = ../assets/realOverCast.png alt="">
             </div>
             <div v-if="showSunCloud" class="weather-description">
-                <img src = ../assets/fewCloudsDay.png alt="">
+                <img src = ../assets/realPartCloudDay.png alt="">
             </div>
             <div v-if="showNoIcon" class="weather-description">
               <p>No Icon Available</p>
@@ -108,7 +108,7 @@
       </div>
       <button @click="GetWeatherDataPlaceName()">Get Weather Report</button>
     </div>
-    <p class="copyright-notice">*Weather Icons taken from <a href = https://iconpacks.net>iconpacks.net</a>.</p>
+    <p class="copyright-notice">*<a href="https://www.freepik.com/author/vectorpocket">WeatherImages by vectorpocket</a> on Freepik</p>
     <p class="copyright-notice">*Sakura Icon taken from <a href = https://www.cleanpng.com/png-flower-icon-cherry-blossom-icon-japan-icon-7690439/#google_vignette>cleanpng.com</a>.</p>
   </div>
   
