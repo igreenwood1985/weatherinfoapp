@@ -496,7 +496,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-color: rgb(255,215,0, 0.5);
+  background-color: rgb(192, 107, 123, 0.5);
   
 }
 
