@@ -1,6 +1,8 @@
 <template>
   <div class="container">
     <div class="inner-container">
+
+        <!--In Depth Weather Stats Summary Display-->
         <div class="description-display">
           <div class="display-info-stats">
               <p><span>Humidity: </span>{{ humidity }}<span>%</span></p>
@@ -24,7 +26,9 @@
               <p><span>Heat Index: </span>{{ heatIndex }}<span>&#176;</span>{{ tempScale }}</p>
           </div>
         </div>
-        <!--Original Description-Display-->
+
+
+        <!--Broad Weather Summary Display-->
         <div class="description-display">
           <div class="title"><h2>{{ locationName }}</h2></div>
           <div class="display-info">
@@ -57,6 +61,9 @@
             <div v-if="showSunCloud" class="weather-description">
                 <img src = ../assets/realPartCloudDay.png alt="">
             </div>
+            <div v-if="showFog" class="weather-description">
+                <img src = ../assets/realFog.png alt="">
+            </div>
             <div v-if="showNoIcon" class="weather-description">
               <p>No Icon Available</p>
             </div>
@@ -64,6 +71,8 @@
 
         </div>
     </div>
+
+    <!--Radio Buttons Display Field for Imperial and Metric Units Selection-->
     <div class="searchbox-row">
       <div class="input-row-units">
         <div class="input-container-units">
@@ -78,6 +87,9 @@
         </div>
       </div>
     </div>
+
+
+    <!--Search by Latitude and Longitude-->
     <div class="searchbox">
       <div class="input-row">
           <div class="input-container">
@@ -91,6 +103,9 @@
         </div>
                     <button @click="GetWeatherDataLatLon()">Get Weather Report</button>
       </div>
+
+
+      <!--Search by City Name, State Code, and 2-Letter Country Code-->
       <div class="searchbox">
       <div class="input-row">
         <div class="input-container">
@@ -108,6 +123,9 @@
       </div>
       <button @click="GetWeatherDataPlaceName()">Get Weather Report</button>
     </div>
+
+
+    <!--Image source attributions with weblinks-->
     <p class="copyright-notice">*<a href="https://www.freepik.com/author/vectorpocket">WeatherImages by vectorpocket</a> on Freepik</p>
     <p class="copyright-notice">*Sakura Icon taken from <a href = https://www.cleanpng.com/png-flower-icon-cherry-blossom-icon-japan-icon-7690439/#google_vignette>cleanpng.com</a>.</p>
   </div>
@@ -127,6 +145,7 @@ export default {
         showRainy: false,
         showStormy: false,
         showDrizzle: false,
+        showFog: false,
         showNoIcon: false,
         gustPresent: true,
         noGust: false,
@@ -150,6 +169,7 @@ export default {
             this.latitude = locationData.lat.toString();
             this.longitude = locationData.lon.toString();
             
+
             // Get the weather data using the updated coordinates
             this.GetWeatherDataLatLon();
           } else {
@@ -330,6 +350,8 @@ export default {
               this.windDirection = 'NbW';
             }
 
+
+            //Conditional Statements to Check mainDescription and activate showImage Variables
             if(mainDescription == 'Thunderstorm'){
               this.showStormy = true;
             }
@@ -353,7 +375,13 @@ export default {
             if(mainDescription == 'Clouds' && descriptionCode != 804){
               this.showSunCloud = true;
             }
+            if(mainDescription == 'Fog' || mainDescription == 'Mist' || mainDescription == 'Haze'
+                || mainDescription == 'Smoke' || mainDescription == 'Dust' || mainDescription == 'Ash') {
+                  this.showFog = true;
+                }
             
+
+
             switch(true){
               case mainDescription == 'Thunderstorm':
                 this.showCloudy = false;
@@ -364,6 +392,7 @@ export default {
                 this.showSnowy = false;
                 this.showNoIcon = false;
                 this.showSunCloud = false;
+                this.showFog = false;
                 break;
               case mainDescription == 'Drizzle':
                 this.showCloudy = false;
@@ -374,6 +403,7 @@ export default {
                 this.showSnowy = false;
                 this.showNoIcon = false;
                 this.showSunCloud = false;
+                this.showFog = false;
                 break;
               case mainDescription == 'Rain':
                 this.showCloudy = false;
@@ -384,6 +414,7 @@ export default {
                 this.showSnowy = false;
                 this.showNoIcon = false;
                 this.showSunCloud = false;
+                this.showFog = false;
                 break;
               case mainDescription == 'Snow':
                 this.showCloudy = false;
@@ -391,9 +422,10 @@ export default {
                 this.showRainy = false;
                 this.showClear = false;
                 this.showDrizzle = false;
-                this.showSnowy = true;
+                this.showSnowy = true; 
                 this.showNoIcon = false;
                 this.showSunCloud = false;
+                this.showFog = false;
                 break;
               case mainDescription == 'Clear':
                 this.showCloudy = false;
@@ -404,6 +436,7 @@ export default {
                 this.showSnowy = false;
                 this.showNoIcon = false;
                 this.showSunCloud = false;
+                this.showFog = false;
                 break;
               case mainDescription == 'Clouds' && descriptionCode == 804:
                 this.showCloudy = true;
@@ -414,6 +447,7 @@ export default {
                 this.showSnowy = false;
                 this.showNoIcon = false;
                 this.showSunCloud = false;
+                this.showFog = false;
                 break;
               case mainDescription == 'Clouds' && descriptionCode != 804:
                 this.showCloudy = false;
@@ -424,6 +458,73 @@ export default {
                 this.showSnowy = false;
                 this.showNoIcon = false;
                 this.showSunCloud = true;
+                this.showFog = false;
+                break;
+                case mainDescription == 'Fog':
+                this.showCloudy = false;
+                this.showStormy = false;
+                this.showRainy = false;
+                this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = false;
+                this.showNoIcon = false;
+                this.showSunCloud = false;
+                this.showFog = true;
+                break;
+                case mainDescription == 'Mist':
+                this.showCloudy = false;
+                this.showStormy = false;
+                this.showRainy = false;
+                this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = false;
+                this.showNoIcon = false;
+                this.showSunCloud = false;
+                this.showFog = true;
+                break;
+                case mainDescription == 'Haze':
+                this.showCloudy = false;
+                this.showStormy = false;
+                this.showRainy = false;
+                this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = false;
+                this.showNoIcon = false;
+                this.showSunCloud = false;
+                this.showFog = true;
+                break;
+                case mainDescription == 'Smoke':
+                this.showCloudy = false;
+                this.showStormy = false;
+                this.showRainy = false;
+                this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = false;
+                this.showNoIcon = false;
+                this.showSunCloud = false;
+                this.showFog = true;
+                break;
+                case mainDescription == 'Dust':
+                this.showCloudy = false;
+                this.showStormy = false;
+                this.showRainy = false;
+                this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = false;
+                this.showNoIcon = false;
+                this.showSunCloud = false;
+                this.showFog = true;
+                break;
+                case mainDescription == 'Ash':
+                this.showCloudy = false;
+                this.showStormy = false;
+                this.showRainy = false;
+                this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = false;
+                this.showNoIcon = false;
+                this.showSunCloud = false;
+                this.showFog = true;
                 break;
               default:
                 this.showNoIcon = true;
