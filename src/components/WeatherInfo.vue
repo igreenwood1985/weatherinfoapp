@@ -589,8 +589,16 @@ a:hover, a:active {
 
 
 /*Responsive resizing of elements for smart phone screens */
+@media only screen and (max-width: 1200px) {
+
+.weather-description img {
+    max-width: 7rem;
+}
+
+}
+
 @media only screen and (max-width: 650px) {
-  .inner-container {
+.inner-container {
     width: 80%;
 
 }
@@ -603,6 +611,10 @@ a:hover, a:active {
 .searchbox-row {
   width: 80%;
 
+}
+
+.weather-description img {
+  max-width: 7rem;
 }
 
 }
