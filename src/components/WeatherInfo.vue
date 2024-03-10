@@ -54,6 +54,9 @@
             <div v-if="showCloudy" class="weather-description">
                 <img src = ../assets/scatteredClouds.png alt="">
             </div>
+            <div v-if="showSunCloud" class="weather-description">
+                <img src = ../assets/fewCloudsDay.png alt="">
+            </div>
             <div v-if="showNoIcon" class="weather-description">
               <p>No Icon Available</p>
             </div>
@@ -120,6 +123,7 @@ export default {
         weatherDescription: '',
         showClear: false,
         showCloudy: false,
+        showSunCloud: false,
         showRainy: false,
         showStormy: false,
         showDrizzle: false,
@@ -169,6 +173,7 @@ export default {
             console.log(response.data)
             let mainDescription = response.data.weather[0].main;
             let descriptionString = response.data.weather[0].description;
+            let descriptionCode = response.data.weather[0].id;
             this.weatherDescription = descriptionString.charAt(0).toUpperCase() + descriptionString.slice(1);
             
             this.locationName = response.data.name;
@@ -341,8 +346,12 @@ export default {
               this.showClear = true;
             }
 
-            if(mainDescription == 'Clouds'){
+            if(mainDescription == 'Clouds' && descriptionCode == 804){
               this.showCloudy = true;
+            }
+
+            if(mainDescription == 'Clouds' && descriptionCode != 804){
+              this.showSunCloud = true;
             }
             
             switch(true){
@@ -354,6 +363,7 @@ export default {
                 this.showDrizzle = false;
                 this.showSnowy = false;
                 this.showNoIcon = false;
+                this.showSunCloud = false;
                 break;
               case mainDescription == 'Drizzle':
                 this.showCloudy = false;
@@ -363,6 +373,7 @@ export default {
                 this.showDrizzle = true;
                 this.showSnowy = false;
                 this.showNoIcon = false;
+                this.showSunCloud = false;
                 break;
               case mainDescription == 'Rain':
                 this.showCloudy = false;
@@ -372,6 +383,7 @@ export default {
                 this.showDrizzle = false;
                 this.showSnowy = false;
                 this.showNoIcon = false;
+                this.showSunCloud = false;
                 break;
               case mainDescription == 'Snow':
                 this.showCloudy = false;
@@ -381,6 +393,7 @@ export default {
                 this.showDrizzle = false;
                 this.showSnowy = true;
                 this.showNoIcon = false;
+                this.showSunCloud = false;
                 break;
               case mainDescription == 'Clear':
                 this.showCloudy = false;
@@ -390,8 +403,9 @@ export default {
                 this.showDrizzle = false;
                 this.showSnowy = false;
                 this.showNoIcon = false;
+                this.showSunCloud = false;
                 break;
-              case mainDescription == 'Clouds':
+              case mainDescription == 'Clouds' && descriptionCode == 804:
                 this.showCloudy = true;
                 this.showStormy = false;
                 this.showRainy = false;
@@ -399,6 +413,17 @@ export default {
                 this.showDrizzle = false;
                 this.showSnowy = false;
                 this.showNoIcon = false;
+                this.showSunCloud = false;
+                break;
+              case mainDescription == 'Clouds' && descriptionCode != 804:
+                this.showCloudy = false;
+                this.showStormy = false;
+                this.showRainy = false;
+                this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = false;
+                this.showNoIcon = false;
+                this.showSunCloud = true;
                 break;
               default:
                 this.showNoIcon = true;
