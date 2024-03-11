@@ -73,6 +73,12 @@
             <div v-if="showFog" class="weather-description">
                 <img src = ../assets/realFog.png alt="">
             </div>
+            <div v-if="showSquall" class="weather-description">
+                <img src = ../assets/realSqualls.png alt="">
+            </div>
+            <div v-if="showTornado" class="weather-description">
+                <img src = ../assets/realTornado.png alt="">
+            </div>
             <div v-if="showNoIcon" class="weather-description">
               <p>No Icon Available</p>
             </div>
@@ -157,6 +163,8 @@ export default {
         showStormy: false,
         showDrizzle: false,
         showFog: false,
+        showSquall: false,
+        showTornado: false,
         showNoIcon: false,
         gustPresent: true,
         noGust: false,
@@ -391,6 +399,12 @@ export default {
             if(mainDescription == 'Clear'){
               this.showClear = true;
             }
+            if(mainDescription == 'Squall'){
+              this.showSquall = true;
+            }
+            if(mainDescription == 'Tornado'){
+              this.showTornado = true;
+            }
 
             if(mainDescription == 'Clouds' && descriptionCode == 804){
               this.showCloudy = true;
@@ -417,6 +431,8 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = false;
                 this.showFog = false;
+                this.showSquall = false;
+                this.showTornado = false;
                 break;
               case mainDescription == 'Drizzle':
                 this.showCloudy = false;
@@ -428,6 +444,8 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = false;
                 this.showFog = false;
+                this.showSquall = false;
+                this.showTornado = false;
                 break;
               case mainDescription == 'Rain':
                 this.showCloudy = false;
@@ -439,6 +457,8 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = false;
                 this.showFog = false;
+                this.showSquall = false;
+                this.showTornado = false;
                 break;
               case mainDescription == 'Snow':
                 this.showCloudy = false;
@@ -450,6 +470,8 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = false;
                 this.showFog = false;
+                this.showSquall = false;
+                this.showTornado = false;
                 break;
               case mainDescription == 'Clear':
                 this.showCloudy = false;
@@ -461,6 +483,8 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = false;
                 this.showFog = false;
+                this.showSquall = false;
+                this.showTornado = false;
                 break;
               case mainDescription == 'Clouds' && descriptionCode == 804:
                 this.showCloudy = true;
@@ -472,6 +496,8 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = false;
                 this.showFog = false;
+                this.showSquall = false;
+                this.showTornado = false;
                 break;
               case mainDescription == 'Clouds' && descriptionCode != 804:
                 this.showCloudy = false;
@@ -483,6 +509,8 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = true;
                 this.showFog = false;
+                this.showSquall = false;
+                this.showTornado = false;
                 break;
                 case mainDescription == 'Fog':
                 this.showCloudy = false;
@@ -494,8 +522,10 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = false;
                 this.showFog = true;
+                this.showSquall = false;
+                this.showTornado = false;
                 break;
-                case mainDescription == 'Mist':
+              case mainDescription == 'Mist':
                 this.showCloudy = false;
                 this.showStormy = false;
                 this.showRainy = false;
@@ -505,6 +535,8 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = false;
                 this.showFog = true;
+                this.showSquall = false;
+                this.showTornado = false;
                 break;
                 case mainDescription == 'Haze':
                 this.showCloudy = false;
@@ -516,8 +548,10 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = false;
                 this.showFog = true;
+                this.showSquall = false;
+                this.showTornado = false;
                 break;
-                case mainDescription == 'Smoke':
+              case mainDescription == 'Smoke':
                 this.showCloudy = false;
                 this.showStormy = false;
                 this.showRainy = false;
@@ -527,8 +561,10 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = false;
                 this.showFog = true;
+                this.showSquall = false;
+                this.showTornado = false;
                 break;
-                case mainDescription == 'Dust':
+              case mainDescription == 'Dust':
                 this.showCloudy = false;
                 this.showStormy = false;
                 this.showRainy = false;
@@ -538,8 +574,10 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = false;
                 this.showFog = true;
+                this.showSquall = false;
+                this.showTornado = false;
                 break;
-                case mainDescription == 'Ash':
+              case mainDescription == 'Ash':
                 this.showCloudy = false;
                 this.showStormy = false;
                 this.showRainy = false;
@@ -549,6 +587,34 @@ export default {
                 this.showNoIcon = false;
                 this.showSunCloud = false;
                 this.showFog = true;
+                this.showSquall = false;
+                this.showTornado = false;
+                break;
+              case mainDescription == 'Squall':
+                this.showCloudy = false;
+                this.showStormy = false;
+                this.showRainy = false;
+                this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = false;
+                this.showNoIcon = false;
+                this.showSunCloud = false;
+                this.showFog = false;
+                this.showSquall = true;
+                this.showTornado = false;
+                break;
+              case mainDescription == 'Tornado':
+                this.showCloudy = false;
+                this.showStormy = false;
+                this.showRainy = false;
+                this.showClear = false;
+                this.showDrizzle = false;
+                this.showSnowy = false;
+                this.showNoIcon = false;
+                this.showSunCloud = false;
+                this.showFog = false;
+                this.showSquall = false;
+                this.showTornado = true;
                 break;
               default:
                 this.showNoIcon = true;
