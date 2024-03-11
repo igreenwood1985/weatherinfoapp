@@ -43,8 +43,11 @@
             <div v-if="showStormy" class="weather-description">
                 <img src = ../assets/realThunderstormTwo.png alt="">
             </div>
-            <div v-if="showDrizzle" class="weather-description">
+            <div v-if="showDrizzle && showDay" class="weather-description">
                 <img src = ../assets/realDrizzleDay.png alt="">
+            </div>
+            <div v-if="showDrizzle && showNight" class="weather-description">
+                <img src = ../assets/realDrizzleNight.png alt="">
             </div>
             <div v-if="showRainy" class="weather-description">
                 <img src = ../assets/realRainShower.png alt="">
@@ -52,14 +55,20 @@
             <div v-if="showSnowy" class="weather-description">
                 <img src = ../assets/realSnow.png alt="">
             </div>
-            <div v-if="showClear" class="weather-description">
+            <div v-if="showClear && showDay" class="weather-description">
                 <img src = ../assets/realClearDay.png alt="">
+            </div>
+            <div v-if="showClear && showNight" class="weather-description">
+                <img src = ../assets/realClearNight.png alt="">
             </div>
             <div v-if="showCloudy" class="weather-description">
                 <img src = ../assets/realOverCast.png alt="">
             </div>
-            <div v-if="showSunCloud" class="weather-description">
+            <div v-if="showSunCloud && showDay" class="weather-description">
                 <img src = ../assets/realPartCloudDay.png alt="">
+            </div>
+            <div v-if="showSunCloud && showNight" class="weather-description">
+                <img src = ../assets/realPartCloudNight.png alt="">
             </div>
             <div v-if="showFog" class="weather-description">
                 <img src = ../assets/realFog.png alt="">
@@ -139,6 +148,8 @@ export default {
       return{
         weather: {},
         weatherDescription: '',
+        showDay: false,
+        showNight: false,
         showClear: false,
         showCloudy: false,
         showSunCloud: false,
@@ -194,6 +205,9 @@ export default {
             let mainDescription = response.data.weather[0].main;
             let descriptionString = response.data.weather[0].description;
             let descriptionCode = response.data.weather[0].id;
+            let sunRise = response.data.sys.sunrise;
+            let sunSet = response.data.sys.sunset;
+            this.localTime = response.data.dt;
             this.weatherDescription = descriptionString.charAt(0).toUpperCase() + descriptionString.slice(1);
             
             this.locationName = response.data.name;
@@ -348,6 +362,16 @@ export default {
             }
             else{ 
               this.windDirection = 'NbW';
+            }
+
+
+            //Conditional Statements to determine daytime or nighttime at locatoin
+            if(this.localTime >= sunRise && this.localTime < sunSet){
+              this.showDay = true;
+              this.showNight = false;
+            } else {
+              this.showNight = true;
+              this.showDay = false;
             }
 
 
