@@ -283,7 +283,7 @@ export default {
             } else if (this.countryCodeDisplay == 'BO'){
               this.countryName = 'Bolivia';
             } else if (this.countryCodeDisplay == 'BQ'){
-              this.countryName = 'BES Islands';
+              this.countryName = 'BES Islands (Netherlands)';
             } else if (this.countryCodeDisplay == 'BR'){
               this.countryName = 'Brazil';
             } else if (this.countryCodeDisplay == 'BS'){
@@ -291,7 +291,7 @@ export default {
             } else if (this.countryCodeDisplay == 'BT'){
               this.countryName = 'Bhutan';
             } else if (this.countryCodeDisplay == 'BV'){
-              this.countryName = 'Bouvet Island';
+              this.countryName = 'Bouvet Island (Norway)';
             } else if (this.countryCodeDisplay == 'BW'){
               this.countryName = 'Botswana';
             } else if (this.countryCodeDisplay == 'BY'){
@@ -301,7 +301,7 @@ export default {
             } else if (this.countryCodeDisplay == 'CA'){
               this.countryName = 'Canada';
             } else if (this.countryCodeDisplay == 'CC'){
-              this.countryName = 'Cocos (Keeling) Islands';
+              this.countryName = 'Cocos (Keeling) Islands (Australia)';
             } else if (this.countryCodeDisplay == 'CD'){
               this.countryName = 'Democratic Republic of the Congo';
             } else if (this.countryCodeDisplay == 'CF'){
@@ -311,7 +311,7 @@ export default {
             } else if (this.countryCodeDisplay == 'CH'){
               this.countryName = 'Switzerland';
             } else if (this.countryCodeDisplay == 'CI'){
-              this.countryName = 'Côte d Ivoire';
+              this.countryName = 'Côte d`Ivoire';
             } else if (this.countryCodeDisplay == 'CK'){
               this.countryName = 'Cook Islands';
             } else if (this.countryCodeDisplay == 'CL'){
@@ -329,13 +329,13 @@ export default {
             } else if (this.countryCodeDisplay == 'CV'){
               this.countryName = 'Cabo Verde';
             } else if (this.countryCodeDisplay == 'CW'){
-              this.countryName = 'Curaçao';
+              this.countryName = 'Curaçao (Netherlands)';
             } else if (this.countryCodeDisplay == 'CX'){
-              this.countryName = 'Christmas Island';
+              this.countryName = 'Christmas Island (Australia)';
             } else if (this.countryCodeDisplay == 'CY'){
               this.countryName = 'Cyprus';
             } else if (this.countryCodeDisplay == 'CZ'){
-              this.countryName = 'Czech Republic';
+              this.countryName = 'Czech Republic (Czechia)';
             } else if (this.countryCodeDisplay == 'DE'){
               this.countryName = 'Germany';
             } else if (this.countryCodeDisplay == 'DJ'){
@@ -367,11 +367,11 @@ export default {
             } else if (this.countryCodeDisplay == 'FJ'){
               this.countryName = 'Fiji';
             } else if (this.countryCodeDisplay == 'FK'){
-              this.countryName = 'Falkland Islands';
+              this.countryName = 'Falkland Islands (UK)';
             } else if (this.countryCodeDisplay == 'FM'){
               this.countryName = 'Federated States of Micronesia';
             } else if (this.countryCodeDisplay == 'FO'){
-              this.countryName = 'Faroe Islands';
+              this.countryName = 'Faroe Islands (Denmark)';
             } else if (this.countryCodeDisplay == 'FR'){
               this.countryName = 'France';
             } else if (this.countryCodeDisplay == 'GA'){
@@ -385,11 +385,11 @@ export default {
             } else if (this.countryCodeDisplay == 'GF'){
               this.countryName = 'French Guiana';
             } else if (this.countryCodeDisplay == 'GG'){
-              this.countryName = 'Guernsey';
+              this.countryName = 'Guernsey (UK)';
             } else if (this.countryCodeDisplay == 'GH'){
               this.countryName = 'Ghana';
             } else if (this.countryCodeDisplay == 'GI'){
-              this.countryName = 'Gibraltar';
+              this.countryName = 'Gibraltar (UK)';
             } else if (this.countryCodeDisplay == 'GL'){
               this.countryName = 'Greenland';
             } else if (this.countryCodeDisplay == 'GM'){
@@ -403,11 +403,11 @@ export default {
             } else if (this.countryCodeDisplay == 'GR'){
               this.countryName = 'Greece';
             } else if (this.countryCodeDisplay == 'GS'){
-              this.countryName = 'South Georgia & South Sandwich Islands';
+              this.countryName = 'South Georgia & South Sandwich Islands (UK)';
             } else if (this.countryCodeDisplay == 'GT'){
               this.countryName = 'Guatemala';
             } else if (this.countryCodeDisplay == 'GU'){
-              this.countryName = 'Guam';
+              this.countryName = 'Guam (US)';
             } else if (this.countryCodeDisplay == 'GW'){
               this.countryName = 'Guinea-Bissau';
             } else if (this.countryCodeDisplay == 'GY'){
@@ -415,7 +415,7 @@ export default {
             } else if (this.countryCodeDisplay == 'HK'){
               this.countryName = 'Hong Kong SAR';
             } else if (this.countryCodeDisplay == 'HM'){
-              this.countryName = 'Heard Island and Mcdonald Islands';
+              this.countryName = 'Heard Island and Mcdonald Islands (Australia)';
             } else if (this.countryCodeDisplay == 'HN'){
               this.countryName = 'Honduras';
             } else if (this.countryCodeDisplay == 'HR'){
@@ -431,11 +431,11 @@ export default {
             } else if (this.countryCodeDisplay == 'IL'){
               this.countryName = 'Israel';
             } else if (this.countryCodeDisplay == 'IM'){
-              this.countryName = 'Isle of Man';
+              this.countryName = 'Isle of Man (UK)';
             } else if (this.countryCodeDisplay == 'IN'){
               this.countryName = 'India';
             } else if (this.countryCodeDisplay == 'IO'){
-              this.countryName = 'British Indian Ocean Territory';
+              this.countryName = 'British Indian Ocean Territory (UK)';
             } else if (this.countryCodeDisplay == 'IQ'){
               this.countryName = 'Iraq';
             } else if (this.countryCodeDisplay == 'IR'){
@@ -445,7 +445,7 @@ export default {
             } else if (this.countryCodeDisplay == 'IT'){
               this.countryName = 'Italy';
             } else if (this.countryCodeDisplay == 'JE'){
-              this.countryName = 'Jersey';
+              this.countryName = 'Jersey (UK)';
             } else if (this.countryCodeDisplay == 'JM'){
               this.countryName = 'Jamaica';
             } else if (this.countryCodeDisplay == 'JO'){
@@ -463,7 +463,7 @@ export default {
             } else if (this.countryCodeDisplay == 'KM'){
               this.countryName = 'Comoros';
             } else if (this.countryCodeDisplay == 'KN'){
-              this.countryName = 'Saint Kitts and Nevis';
+              this.countryName = 'Saint Kitts and Nevis (UK)';
             } else if (this.countryCodeDisplay == 'KP'){
               this.countryName = 'North Korea DPRK';
             } else if (this.countryCodeDisplay == 'KR'){
@@ -471,7 +471,7 @@ export default {
             } else if (this.countryCodeDisplay == 'KW'){
               this.countryName = 'Kuwait';
             } else if (this.countryCodeDisplay == 'KY'){
-              this.countryName = 'Cayman Islands';
+              this.countryName = 'Cayman Islands (UK)';
             } else if (this.countryCodeDisplay == 'KZ'){
               this.countryName = 'Kazakhstan';
             } else if (this.countryCodeDisplay == 'LA'){
@@ -479,7 +479,7 @@ export default {
             } else if (this.countryCodeDisplay == 'LB'){
               this.countryName = 'Lebanon';
             } else if (this.countryCodeDisplay == 'LC'){
-              this.countryName = 'Saint Lucia';
+              this.countryName = 'Saint Lucia (UK)';
             } else if (this.countryCodeDisplay == 'LI'){
               this.countryName = 'Liechtenstein';
             } else if (this.countryCodeDisplay == 'LK'){
@@ -505,11 +505,11 @@ export default {
             } else if (this.countryCodeDisplay == 'ME'){
               this.countryName = 'Montenegro';
             } else if (this.countryCodeDisplay == 'MF'){
-              this.countryName = 'Saint Martin (French)';
+              this.countryName = 'Saint Martin (France)';
             } else if (this.countryCodeDisplay == 'MG'){
               this.countryName = 'Madagascar';
             } else if (this.countryCodeDisplay == 'MH'){
-              this.countryName = 'Marshall Islands';
+              this.countryName = 'Marshall Islands (US)';
             } else if (this.countryCodeDisplay == 'MK'){
               this.countryName = 'North Macedonia';
             } else if (this.countryCodeDisplay == 'ML'){
@@ -519,15 +519,15 @@ export default {
             } else if (this.countryCodeDisplay == 'MN'){
               this.countryName = 'Mongolia';
             } else if (this.countryCodeDisplay == 'MO'){
-              this.countryName = 'Macao';
+              this.countryName = 'Macao SAR';
             } else if (this.countryCodeDisplay == 'MP'){
-              this.countryName = 'Northern Marian Islands';
+              this.countryName = 'Northern Mariana Islands (US)';
             } else if (this.countryCodeDisplay == 'MQ'){
-              this.countryName = 'Martinique';
+              this.countryName = 'Martinique (France)';
             } else if (this.countryCodeDisplay == 'MR'){
               this.countryName = 'Mauritania';
             } else if (this.countryCodeDisplay == 'MS'){
-              this.countryName = 'Montsurrat';
+              this.countryName = 'Montsurrat (UK)';
             } else if (this.countryCodeDisplay == 'MT'){
               this.countryName = 'Malta';
             } else if (this.countryCodeDisplay == 'MU'){
@@ -545,7 +545,7 @@ export default {
             } else if (this.countryCodeDisplay == 'NA'){
               this.countryName = 'Namibia';
             } else if (this.countryCodeDisplay == 'NC'){
-              this.countryName = 'New Caledonia';
+              this.countryName = 'New Caledonia (France)';
             } else if (this.countryCodeDisplay == 'NG'){
               this.countryName = 'Niger';
             } else if (this.countryCodeDisplay == 'NI'){
@@ -559,7 +559,7 @@ export default {
             } else if (this.countryCodeDisplay == 'NR'){
               this.countryName = 'Nauru';
             } else if (this.countryCodeDisplay == 'NU'){
-              this.countryName = 'Niue';
+              this.countryName = 'Niue (New Zealand)';
             } else if (this.countryCodeDisplay == 'NZ'){
               this.countryName = 'New Zealand';
             } else if (this.countryCodeDisplay == 'OM'){
@@ -579,9 +579,9 @@ export default {
             } else if (this.countryCodeDisplay == 'PL'){
               this.countryName = 'Poland';
             } else if (this.countryCodeDisplay == 'PM'){
-              this.countryName = 'Saint Pierre and Miquelon';
+              this.countryName = 'Saint Pierre and Miquelon (France)';
             } else if (this.countryCodeDisplay == 'PN'){
-              this.countryName = 'Pitcairn';
+              this.countryName = 'Pitcairn (UK)';
             } else if (this.countryCodeDisplay == 'PR'){
               this.countryName = 'Puerto Rico (US)';
             } else if (this.countryCodeDisplay == 'PS'){
@@ -607,7 +607,7 @@ export default {
             } else if (this.countryCodeDisplay == 'SA'){
               this.countryName = 'Saudi Arabia';
             } else if (this.countryCodeDisplay == 'SB'){
-              this.countryName = 'Solomon Islands';
+              this.countryName = 'Solomon Islands (UK)';
             } else if (this.countryCodeDisplay == 'SC'){
               this.countryName = 'Seychelles';
             } else if (this.countryCodeDisplay == 'SD'){
@@ -641,13 +641,13 @@ export default {
             } else if (this.countryCodeDisplay == 'SV'){
               this.countryName = 'El Salvador';
             } else if (this.countryCodeDisplay == 'SX'){
-              this.countryName = 'Saint Martin (Dutch)';
+              this.countryName = 'Dutch Saint Martin (Netherlands)';
             } else if (this.countryCodeDisplay == 'SY'){
               this.countryName = 'Syria';
             } else if (this.countryCodeDisplay == 'SZ'){
               this.countryName = 'Eswatini';
             } else if (this.countryCodeDisplay == 'TC'){
-              this.countryName = 'Turks and Caicos Islands';
+              this.countryName = 'Turks and Caicos Islands (UK)';
             } else if (this.countryCodeDisplay == 'TD'){
               this.countryName = 'Chad';
             } else if (this.countryCodeDisplay == 'TF'){
@@ -659,7 +659,7 @@ export default {
             } else if (this.countryCodeDisplay == 'TJ'){
               this.countryName = 'Tajikistan';
             } else if (this.countryCodeDisplay == 'TK'){
-              this.countryName = 'Tokelau';
+              this.countryName = 'Tokelau (New Zealand)';
             } else if (this.countryCodeDisplay == 'TL'){
               this.countryName = 'Timor-Leste';
             } else if (this.countryCodeDisplay == 'TM'){
@@ -675,7 +675,7 @@ export default {
             } else if (this.countryCodeDisplay == 'TV'){
               this.countryName = 'Tuvalu';
             } else if (this.countryCodeDisplay == 'TW'){
-              this.countryName = 'Taiwan - Republic of China';
+              this.countryName = 'Taiwan ROC';
             } else if (this.countryCodeDisplay == 'TZ'){
               this.countryName = 'Tanzania';
             } else if (this.countryCodeDisplay == 'UA'){
@@ -693,7 +693,7 @@ export default {
             } else if (this.countryCodeDisplay == 'VA'){
               this.countryName = 'Holy See';
             } else if (this.countryCodeDisplay == 'VC'){
-              this.countryName = 'Saint Vincent and the Grenadines';
+              this.countryName = 'Saint Vincent and the Grenadines (UK)';
             } else if (this.countryCodeDisplay == 'VE'){
               this.countryName = 'Venezuela';
             } else if (this.countryCodeDisplay == 'VG'){
@@ -705,13 +705,13 @@ export default {
             } else if (this.countryCodeDisplay == 'VU'){
               this.countryName = 'Vanuatu';
             } else if (this.countryCodeDisplay == 'WF'){
-              this.countryName = 'Wallis and Fortuna';
+              this.countryName = 'Wallis and Fortuna (France)';
             } else if (this.countryCodeDisplay == 'WS'){
               this.countryName = 'Samoa';
             } else if (this.countryCodeDisplay == 'YE'){
               this.countryName = 'Yemen';
             } else if (this.countryCodeDisplay == 'YT'){
-              this.countryName = 'Mayotte';
+              this.countryName = 'Mayotte (France)';
             } else if (this.countryCodeDisplay == 'ZA'){
               this.countryName = 'South Africa';
             } else if (this.countryCodeDisplay == 'ZM'){
