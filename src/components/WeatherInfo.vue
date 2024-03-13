@@ -1296,6 +1296,13 @@ a:hover, a:active {
 
 }
 
+.display-info-stats {
+  display: flex;
+  justify-content: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 .searchbox {
   width: 80%;
   
