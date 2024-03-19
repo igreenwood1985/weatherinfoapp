@@ -171,9 +171,9 @@ export default {
         temperature: '',
         latitude: '6.1128',
         longitude: '125.1717',
-        cityName: '',
-        stateCode: '',
-        countryCode: '',
+        cityName: 'Worthington',
+        stateCode: 'OH',
+        countryCode: 'US',
         windDirection: '',
         units: 'metric',
       }
